@@ -1,6 +1,7 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+    schemes: ['%app_schemes%']
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
