@@ -4,5 +4,6 @@ git pull
 
 php ../composer/composer.phar install
 
-php bin/console cache:clear -e prod
-php bin/console assets:install -e prod
+php bin/console doctrine:schema:update --force
+php bin/console cache:clear --env=prod
+php bin/console assetic:dump --env=prod --no-debug
