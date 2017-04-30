@@ -78,3 +78,18 @@ fos_user:
     from_email:
         address: '%fos_from_email_address%'
         sender_name: '%fos_from_email_sender_name%'
+
+# Assetic Configuration
+assetic:
+    debug: "%kernel.debug%"
+    use_controller: "%kernel.debug%"
+    bundles: []
+    filters:
+        cssrewrite: ~
+    assets:
+        base_stylesheets:
+            inputs:
+                - 'bundles/app/css/*'
+        base_scripts:
+            inputs:
+                - 'bundles/app/js/*'

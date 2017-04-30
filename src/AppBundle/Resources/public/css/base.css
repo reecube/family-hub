@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+.mdl-menu .material-icons {
+    vertical-align: middle;
+}
+
+.plf-image-header {
+    padding: 16px;
+
+    min-height: 200px;
+
+    overflow: hidden;
+
+    background: #333 center no-repeat;
+    background-size: cover;
+}
+
+.plf-drawer-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 16px;
+}
+
+.plf-card-external-link {
+    float: right;
+
+    text-align: right;
+}
+
+.plf-channel-icon {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+}

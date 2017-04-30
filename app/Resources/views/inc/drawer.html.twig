@@ -1,0 +1,46 @@
+{# @var \YouTubeBundle\Model\ViewChannel myChannel #}
+
+<div class="demo-drawer mdl-layout__drawer mdl-color--grey-900 mdl-color-text--white">
+    {% if drawerHeader is defined %}
+        <header>
+            <a class="plf-image-header plf-drawer-header"
+               href="{{ drawerHeader.user.channel }}" target="_blank"
+               style="background-image: url('{{ drawerHeader.background }}');">
+                {% if drawerHeader.user.image is defined %}
+                    <img class="plf-channel-icon" src="{{ drawerHeader.user.image }}">
+                {% endif %}
+            </a>
+            <div class="plf-drawer-header">
+                <div class="demo-avatar-dropdown">
+                    <a href="{{ drawerHeader.user.channel }}" target="_blank"
+                       class="mdl-color-text--white" style="text-decoration: none;">
+                        {% if drawerHeader.user.name is defined %}
+                            <span>{{ drawerHeader.user.name }}</span>
+                        {% endif %}
+                        {% if drawerHeader.user.mail is defined %}
+                            <small>{{ drawerHeader.user.mail }}</small>
+                        {% endif %}
+                    </a>
+                    <div class="mdl-layout-spacer"></div>
+                    <button id="drawer-user-menu"
+                            class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons" role="presentation">arrow_drop_down</i>
+                        <span class="visuallyhidden">{{ 'base_drawer_account' | trans }}</span>
+                    </button>
+                    <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                         for="drawer-user-menu">
+                        <a class="mdl-menu__item" href="{{ logoutUrl }}">
+                            <i class="material-icons">exit_to_app</i>
+                            <span>{{ 'base_drawer_logout' | trans }}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endif %}
+    {% block navigation %}
+        <nav class="demo-navigation mdl-navigation">
+            {% include 'inc/navigation.html.twig' %}
+        </nav>
+    {% endblock %}
+</div>

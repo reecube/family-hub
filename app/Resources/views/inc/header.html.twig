@@ -1,0 +1,17 @@
+<header class="demo-header mdl-layout__header">
+    <div class="mdl-layout__header-row">
+        {% if page is defined and page.icon is defined %}
+            <i class="material-icons">{{ page.icon }}</i>
+            <span>&nbsp;</span>
+        {% endif %}
+        {% if page is defined and page.title is defined %}
+            <span class="mdl-layout-title">
+                <span>{{ page.title }}</span>
+            </span>
+        {% endif %}
+        <div class="mdl-layout-spacer"></div>
+        {% block langNav %}
+            {% include 'inc/lang-nav.html.twig' %}
+        {% endblock %}
+    </div>
+</header>
