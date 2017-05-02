@@ -85,6 +85,7 @@ jspm_packages
 
 ### Symfony stuff
 
+*~
 /app/config/parameters.yml
 /build/
 /phpunit.xml
