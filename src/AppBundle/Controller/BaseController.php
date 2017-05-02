@@ -39,7 +39,7 @@ abstract class BaseController extends Controller
             'locale' => $request->getLocale(),
             'languages' => $this->getParsedLanguages(),
             'description' => 'TODO: description',
-            'navigation' => Pages::PAGES,
+            'navigation' => $this->getParsedPages(),
             'hasDrawer' => $this->isAuthenticatedFully(),
             'page' => $page,
         ];
@@ -67,6 +67,47 @@ abstract class BaseController extends Controller
         }
 
         return $languages;
+    }
+
+    /**
+     * @return array
+     */
+    public function getParsedPages()
+    {
+        $pages = [];
+
+        foreach (Pages::PAGES as &$page) {
+            $pages[] = $this->parsePage($page);
+        }
+
+        return $pages;
+    }
+
+    /**
+     * @param int $id
+     * @param mixed $default
+     * @return array
+     */
+    public function getParsedPage($id, $default = null)
+    {
+        $pages = Pages::PAGES;
+
+        if (!isset($pages[$id])) {
+            return $default;
+        }
+
+        return $this->parsePage($pages[$id]);
+    }
+
+    /**
+     * @param array $page
+     * @return array
+     */
+    protected function parsePage(array &$page)
+    {
+        $page[Pages::KEY_TITLE] = $this->get('translator')->trans($page[Pages::KEY_TITLE]);
+
+        return $page;
     }
 
     /**

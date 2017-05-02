@@ -14,7 +14,7 @@ class ViewController extends BaseController
      */
     public function indexAction(Request $request)
     {
-        return $this->render('index.html.twig', $this->getViewContext($request, Pages::PAGES[Pages::ID_PAGE_INDEX]));
+        return $this->render('index.html.twig', $this->getViewContext($request, $this->getParsedPage(Pages::ID_PAGE_INDEX)));
     }
 
     /**
@@ -24,6 +24,6 @@ class ViewController extends BaseController
      */
     public function demoAction(Request $request)
     {
-        return $this->render('demo.html.twig', $this->getViewContext($request, Pages::PAGES[Pages::ID_PAGE_DEMO]));
+        return $this->render('demo.html.twig', $this->getViewContext($request, $this->getParsedPage(Pages::ID_PAGE_DEMO)));
     }
 }
