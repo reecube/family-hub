@@ -4,9 +4,9 @@ base_drawer_account: 'Account'
 
 base:
   create:
-    title: 'Create'
+    title: 'New'
   update:
-    title: 'Update'
+    title: 'Edit'
   table:
     header:
       create: 'Create'
