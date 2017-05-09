@@ -19,10 +19,13 @@ base:
 page:
   index:
     title: 'Home'
+    description: ''
   dinner:
     title: 'Dinners'
+    description: ''
   person:
     title: 'Persons'
+    description: ''
     properties:
       nickname: 'Nickname'
       firstname: 'Firstname'
@@ -32,8 +35,10 @@ page:
       user: 'User'
   diet:
     title: 'Diets'
+    description: ''
     properties:
       title: 'Title'
       description: 'Description'
   settings:
     title: 'Settings'
+    description: ''

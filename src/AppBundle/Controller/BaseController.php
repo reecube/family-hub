@@ -59,7 +59,7 @@ abstract class BaseController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
             'locale' => $request->getLocale(),
             'languages' => $this->getParsedLanguages(),
-            'description' => 'TODO: description',
+            'description' => $this->get('translator')->trans("page.{$this->name}.description"),
             'navigation' => $this->getParsedPages(),
             'hasDrawer' => $this->isAuthenticatedFully(),
             'page' => $page,
