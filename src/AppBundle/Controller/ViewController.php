@@ -38,10 +38,10 @@ class ViewController extends BaseController
      */
     public function personsAction(Request $request)
     {
+        $repoPerson = $this->getDoctrine()->getRepository('AppBundle:Person');
+
         $context = $this->getViewContext($request, $this->getParsedPage(Pages::ID_PAGE_PERSONS), [
-            'persons' => [
-                'Test',
-            ],
+            'persons' => $repoPerson->findAll(),
         ]);
 
         return $this->render('persons.html.twig', $context);
