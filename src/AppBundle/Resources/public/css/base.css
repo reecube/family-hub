@@ -2,6 +2,25 @@
     box-sizing: border-box;
 }
 
+.notifications {
+    margin-bottom: 16px;
+}
+
+.notification {
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 1px solid;
+}
+
+.mdl-layout__content > .mdl-grid > * {
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 8px;
+
+    background: #fff;
+}
+
 .mdl-menu .material-icons {
     vertical-align: middle;
 }

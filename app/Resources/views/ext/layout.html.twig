@@ -57,10 +57,38 @@
             {% endif %}
         {% endblock %}
         {% block main %}
-            <main class="mdl-layout__content">
+            <main class="mdl-layout__content mdl-color--grey-200">
                 <div class="mdl-grid">
-                    {% block content %}
-                    {% endblock %}
+                    <div class="mdl-cell mdl-cell--8-col mdl-cell--10-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--2dp">
+                        {% block messages %}
+                            {% if messages | length %}
+                                <div class="notifications">
+                                    {% for message in messages %}
+                                        <div class="notification mdl-color--green-100 mdl-color-text--green-400">
+                                            <div class="mdl-color-text--green">
+                                                {{ message }}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endblock %}
+                        {% block errors %}
+                            {% if errors | length %}
+                                <div class="notifications">
+                                    {% for error in errors %}
+                                        <div class="notification mdl-color--red-100 mdl-color-text--red-400">
+                                            <div class="mdl-color-text--red">
+                                                {{ error }}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endblock %}
+                        {% block content %}
+                        {% endblock %}
+                    </div>
                 </div>
             </main>
         {% endblock %}

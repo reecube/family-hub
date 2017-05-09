@@ -55,6 +55,18 @@ abstract class BaseController extends Controller
      */
     public function getViewContext(Request $request, array $page, $custom = null)
     {
+        $messages = $request->get('messages', []);
+        $message = $request->get('message', null);
+        if ($message !== null) {
+            $messages[] = $message;
+        }
+
+        $errors = $request->get('errors', []);
+        $error = $request->get('error', null);
+        if ($error !== null) {
+            $errors[] = $error;
+        }
+
         $context = [
             'base_dir' => realpath($this->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
             'locale' => $request->getLocale(),
@@ -63,6 +75,8 @@ abstract class BaseController extends Controller
             'navigation' => $this->getParsedPages(),
             'hasDrawer' => $this->isAuthenticatedFully(),
             'page' => $page,
+            'messages' => $messages,
+            'errors' => $errors,
         ];
 
         if ($custom === null) {
