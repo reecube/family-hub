@@ -83,7 +83,7 @@ abstract class BaseController extends Controller
             return $context;
         }
 
-        return array_merge($context, $custom);
+        return array_replace_recursive($context, $custom);
     }
 
     /**
