@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+body {
+    min-height: unset;
+    height: 100%;
+}
+
 .notifications {
     margin-bottom: 16px;
 }
