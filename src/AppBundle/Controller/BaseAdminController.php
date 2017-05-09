@@ -61,7 +61,7 @@ abstract class BaseAdminController extends BaseController
         $this->setAdminTemplate(true);
 
         return $this->renderPage($request, [
-            'pagePrefix' => 'page.' . $this->name,
+            'name' => $this->name,
             'entity' => $entity,
         ]);
     }
@@ -87,7 +87,7 @@ abstract class BaseAdminController extends BaseController
         $repo = $this->getDoctrine()->getRepository($this->entityClass);
 
         return $this->renderPage($request, [
-            'pagePrefix' => 'page.' . $this->name,
+            'name' => $this->name,
             'entities' => $repo->findAll(),
             'properties' => $this->propertiesRead,
         ]);

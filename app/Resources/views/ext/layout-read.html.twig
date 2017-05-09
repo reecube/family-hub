@@ -1,5 +1,10 @@
 {% extends 'ext/layout.html.twig' %}
 
+{% set urlKeyCreate = 'app_' ~ name ~ '_create' %}
+{% set urlCreate = path(urlKeyCreate) %}
+{% set urlKeyUpdate = 'app_' ~ name ~ '_update' %}
+{% set urlKeyDelete = 'app_' ~ name ~ '_delete' %}
+
 {% block content %}
     <div>
         <div>
@@ -13,7 +18,7 @@
 
                         {% for property in properties %}
                             <td class="mdl-data-table__cell--non-numeric">
-                                <span>{{ (pagePrefix ~ '.properties.' ~ property) | trans }}</span>
+                                <span>{{ ('page.' ~ name ~ '.properties.' ~ property) | trans }}</span>
                             </td>
                         {% endfor %}
 
@@ -26,9 +31,10 @@
                     {% for entity in entities %}
                         <tr>
                             <td class="mdl-data-table__cell--non-numeric">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                                <a href="{{ path(urlKeyUpdate, { id: entity.id }) }}"
+                                   class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
                                     <i class="material-icons">edit</i>
-                                </button>
+                                </a>
                             </td>
 
                             {% for property in properties %}
@@ -38,9 +44,10 @@
                             {% endfor %}
 
                             <td class="mdl-data-table__cell--non-numeric">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-color-text--red-900">
+                                <a href="{{ path(urlKeyDelete, { id: entity.id }) }}"
+                                   class="mdl-button mdl-js-button mdl-button--icon mdl-color-text--red-900">
                                     <i class="material-icons">delete_forever</i>
-                                </button>
+                                </a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -53,9 +60,10 @@
             {% endif %}
         </div>
         <div>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+            <a href="{{ urlCreate }}"
+               class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                 <span>{{ 'base.table.create' | trans }}</span>
-            </button>
+            </a>
         </div>
     </div>
 {% endblock %}
