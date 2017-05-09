@@ -2,19 +2,20 @@
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @Route("/language")
+ */
 class LanguageController extends BaseController
 {
     /**
-     * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/language/{_locale}", name="language",
-     *     requirements={
-     *         "_locale": "en|fr|de"
-     *     })
+     * @Route("/{_locale}", requirements={ "_locale": "en|fr|de" })
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function languageAction(Request $request)
+    public function changeAction(Request $request)
     {
         $_locale = $request->attributes->get('_locale');
 

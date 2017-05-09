@@ -24,7 +24,7 @@ class DinnerController extends BaseController
     protected $pageId = Pages::ID_PAGE_DINNER;
 
     /**
-     * @Route("/", name="dinner")
+     * @Route("/")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */

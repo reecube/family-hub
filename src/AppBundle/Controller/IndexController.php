@@ -21,7 +21,7 @@ class IndexController extends BaseController
 
     /**
      * @Security("has_role('ROLE_USER')")
-     * @Route("/", name="index")
+     * @Route("/")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */

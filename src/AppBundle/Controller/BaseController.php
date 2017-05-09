@@ -21,7 +21,7 @@ abstract class BaseController extends Controller
 
     function __construct()
     {
-        if ($this->template === null || $this->pageId === null) {
+        if ($this->pageId === null) {
             throw new \Exception('You have to overwrite the base variables!');
         }
     }
@@ -67,7 +67,7 @@ abstract class BaseController extends Controller
         $languages = [];
 
         foreach (Languages::LANGUAGES as $langId => $language) {
-            $language[Languages::KEY_URL] = $this->generateUrl('language', [
+            $language[Languages::KEY_URL] = $this->generateUrl('app_language_change', [
                 '_locale' => $language[Languages::KEY_LOCALE],
             ]);
 
@@ -113,8 +113,11 @@ abstract class BaseController extends Controller
      */
     protected function parsePage(array &$page)
     {
+        if (!isset($page[Pages::KEY_METHOD])) {
+            $page[Pages::KEY_METHOD] = 'index';
+        }
         if (!isset($page[Pages::KEY_ROUTE])) {
-            $page[Pages::KEY_ROUTE] = $page[Pages::KEY_NAME];
+            $page[Pages::KEY_ROUTE] = 'app_' . $page[Pages::KEY_NAME] . '_' . $page[Pages::KEY_METHOD];
         }
         if (!isset($page[Pages::KEY_TITLE])) {
             $page[Pages::KEY_TITLE] = "page.{$page[Pages::KEY_NAME]}.title";

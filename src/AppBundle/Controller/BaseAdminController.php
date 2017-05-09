@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -66,6 +67,7 @@ abstract class BaseAdminController extends BaseController
     }
 
     /**
+     * @Route("/create")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -75,6 +77,8 @@ abstract class BaseAdminController extends BaseController
     }
 
     /**
+     * @Route("/")
+     * @Route("/read")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -90,6 +94,7 @@ abstract class BaseAdminController extends BaseController
     }
 
     /**
+     * @Route("/update/{id}", requirements={"id" = "\d+"})
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -99,6 +104,7 @@ abstract class BaseAdminController extends BaseController
     }
 
     /**
+     * @Route("/delete/{id}", requirements={"id" = "\d+"})
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */

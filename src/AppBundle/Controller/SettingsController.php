@@ -24,7 +24,7 @@ class SettingsController extends BaseController
     protected $pageId = Pages::ID_PAGE_SETTINGS;
 
     /**
-     * @Route("/", name="settings")
+     * @Route("/")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */

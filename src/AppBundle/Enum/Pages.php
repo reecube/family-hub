@@ -12,6 +12,7 @@ abstract class Pages
 
     const KEY_NAME = 'name';
     const KEY_ROUTE = 'route';
+    const KEY_METHOD = 'method';
     const KEY_ICON = 'icon';
     const KEY_TITLE = 'title';
 
@@ -27,10 +28,12 @@ abstract class Pages
         self::ID_PAGE_PERSON => [
             self::KEY_NAME => 'person',
             self::KEY_ICON => 'face',
+            self::KEY_METHOD => 'read',
         ],
         self::ID_PAGE_DIET => [
             self::KEY_NAME => 'diet',
             self::KEY_ICON => 'favorite',
+            self::KEY_METHOD => 'read',
         ],
         self::ID_PAGE_SETTINGS => [
             self::KEY_NAME => 'settings',
