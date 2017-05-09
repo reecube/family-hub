@@ -9,6 +9,15 @@ use Symfony\Component\HttpFoundation\Request;
 
 abstract class BaseController extends Controller
 {
+    /**
+     * @var string
+     */
+    protected $template = 'index.html.twig';
+
+    /**
+     * @var int
+     */
+    protected $pageId = Pages::ID_PAGE_INDEX;
 
     /**
      * @return bool
@@ -122,5 +131,17 @@ abstract class BaseController extends Controller
     public function isAuthenticatedFully()
     {
         return $this->isGranted('IS_AUTHENTICATED_FULLY');
+    }
+
+    /**
+     * @param Request $request
+     * @param null|array $custom
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function renderPage(Request $request, $custom = null)
+    {
+        $context = $this->getViewContext($request, $this->getParsedPage($this->pageId), $custom);
+
+        return $this->render($this->template, $context);
     }
 }
