@@ -2,6 +2,27 @@
 
 {% block content %}
     <form action="" method="post">
+        {% for fieldName, field in fields %}
+            {% if entity %}
+                {% set inputValue = attribute(entity, fieldName) %}
+            {% else %}
+                {% set inputValue = null %}
+            {% endif %}
 
+            {% set inputId = fieldName %}
+            {% set inputName = fieldName %}
+            {% set inputText = ('page.' ~ name ~ '.properties.' ~ fieldName) | trans %}
+            {% set inputMaxlength = field.length %}
+            {% set inputRequired = field.nullable %}
+
+            <div>
+                {% include 'inc/input/' ~ field.type ~ '.html.twig' %}
+            </div>
+        {% endfor %}
+
+        <div>
+            <input type="submit" value="{{ 'base.form.submit' | trans }}"
+                   class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+        </div>
     </form>
 {% endblock %}

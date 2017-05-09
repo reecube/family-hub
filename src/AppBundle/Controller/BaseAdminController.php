@@ -52,17 +52,38 @@ abstract class BaseAdminController extends BaseController
      */
     public function upsertEntity(Request $request)
     {
-        $repo = $this->getDoctrine()->getRepository($this->entityClass);
+        $doctrine = $this->getDoctrine();
 
-        $entity = $repo->find($request->get('id'));
+        $repo = $doctrine->getRepository($this->entityClass);
+
+        $entityId = $request->get('id', null);
+
+        if (is_numeric($entityId)) {
+            $entity = $repo->find($entityId);
+        } else {
+            $entity = null;
+        }
 
         // TODO: on post: upsert entity
+
+
+        $em = $doctrine->getManager();
+
+        /** @var \Doctrine\ORM\Mapping\ClassMetadata $metadata */
+        $metadata = $em->getClassMetadata($this->entityClass);
+
+        $allowed = $this->propertiesEdit;
+
+        $fields = array_filter($metadata->fieldMappings, function ($key) use ($allowed) {
+            return in_array($key, $allowed);
+        }, ARRAY_FILTER_USE_KEY);
 
         $this->setAdminTemplate(true);
 
         return $this->renderPage($request, [
             'name' => $this->name,
             'entity' => $entity,
+            'fields' => $fields,
         ]);
     }
 

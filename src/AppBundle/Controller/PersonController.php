@@ -30,5 +30,5 @@ class PersonController extends BaseAdminController
     /**
      * @var array
      */
-    protected $propertiesEdit = [];
+    protected $propertiesEdit = ['nickname', 'firstname', 'lastname', 'female', 'allowLogin'];
 }

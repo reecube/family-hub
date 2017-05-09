@@ -11,6 +11,10 @@ base:
       delete: 'Delete'
     empty: 'There are no entries.'
     create: 'create'
+  form:
+    error:
+      nan: 'Input is not a number!'
+    submit: 'submit'
 
 page:
   index:
@@ -23,6 +27,8 @@ page:
       nickname: 'Nickname'
       firstname: 'Firstname'
       lastname: 'Lastname'
+      female: 'Is Female?'
+      allowLogin: 'Allow login?'
       user: 'User'
   diet:
     title: 'Diets'

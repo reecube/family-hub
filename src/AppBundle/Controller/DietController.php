@@ -30,5 +30,5 @@ class DietController extends BaseAdminController
     /**
      * @var array
      */
-    protected $propertiesEdit = [];
+    protected $propertiesEdit = ['title', 'description'];
 }
