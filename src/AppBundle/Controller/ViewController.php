@@ -18,12 +18,42 @@ class ViewController extends BaseController
     }
 
     /**
-     * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/demo", name="demo")
+     * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/dinner", name="dinner")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function demoAction(Request $request)
+    public function dinnerAction(Request $request)
     {
-        return $this->render('demo.html.twig', $this->getViewContext($request, $this->getParsedPage(Pages::ID_PAGE_DEMO)));
+        return $this->render('dinner.html.twig', $this->getViewContext($request, $this->getParsedPage(Pages::ID_PAGE_DINNER)));
+    }
+
+    /**
+     * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/person", name="person")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function personAction(Request $request)
+    {
+        return $this->render('person.html.twig', $this->getViewContext($request, $this->getParsedPage(Pages::ID_PAGE_PERSON)));
+    }
+
+    /**
+     * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/diet", name="diet")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function dietAction(Request $request)
+    {
+        return $this->render('diet.html.twig', $this->getViewContext($request, $this->getParsedPage(Pages::ID_PAGE_DIET)));
+    }
+
+    /**
+     * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/settings", name="settings")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function settingsAction(Request $request)
+    {
+        return $this->render('settings.html.twig', $this->getViewContext($request, $this->getParsedPage(Pages::ID_PAGE_SETTINGS)));
     }
 }
