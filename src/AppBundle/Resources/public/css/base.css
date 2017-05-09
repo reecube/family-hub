@@ -19,6 +19,21 @@
     white-space: nowrap;
 }
 
+.admin-base-read-table .mdl-data-table {
+    margin-bottom: 16px;
+
+    width: 100%;
+}
+
+.admin-base-read-table .mdl-data-table td:first-child,
+.admin-base-read-table .mdl-data-table td:last-child {
+    width: 1px;
+}
+
+.admin-base-read-create .mdl-button {
+    width: 100%;
+}
+
 .header-link * {
     display: inline-block;
 

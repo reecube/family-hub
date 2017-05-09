@@ -6,8 +6,8 @@
 {% set urlKeyDelete = 'app_' ~ name ~ '_delete' %}
 
 {% block content %}
-    <div>
-        <div>
+    <div class="admin-base-read">
+        <div class="admin-base-read-table">
             {% if entities | length %}
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                     <thead>
@@ -59,7 +59,7 @@
                 </p>
             {% endif %}
         </div>
-        <div>
+        <div class="admin-base-read-create">
             <a href="{{ urlCreate }}"
                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                 <span>{{ 'base.table.create' | trans }}</span>
