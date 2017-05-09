@@ -109,7 +109,7 @@ abstract class BaseController extends Controller
             $page[Pages::KEY_ROUTE] = $page[Pages::KEY_NAME];
         }
         if (!isset($page[Pages::KEY_TITLE])) {
-            $page[Pages::KEY_TITLE] = 'title_' . $page[Pages::KEY_NAME];
+            $page[Pages::KEY_TITLE] = "page.{$page[Pages::KEY_NAME]}.title";
         }
         $page[Pages::KEY_TITLE] = $this->get('translator')->trans($page[Pages::KEY_TITLE]);
 

@@ -2,8 +2,14 @@ base_enter_query: Enter your query...
 base_drawer_logout: Logout
 base_drawer_account: Account
 
-title_index: Home
-title_dinner: Dinner
-title_person: Person
-title_diet: Diets
-title_settings: settings
+page:
+  index:
+    title: Home
+  dinner:
+    title: Dinner
+  person:
+    title: Person
+  diet:
+    title: Diets
+  settings:
+    title: Settings
