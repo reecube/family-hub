@@ -88,14 +88,14 @@ class Person
     function __toString()
     {
         $nickname = $this->getNickname();
-        if ($nickname !== null) {
+        if ($nickname !== null && strlen($nickname) > 0) {
             return $nickname;
         }
 
         $fullname = $this->getFirstname();
         $lastname = $this->getLastname();
 
-        if ($lastname !== null) {
+        if ($lastname !== null && strlen($lastname) > 0) {
             $fullname .= ' ' . $lastname;
         }
 
