@@ -64,10 +64,35 @@ abstract class BaseAdminController extends BaseController
             $entity = null;
         }
 
-        // TODO: on post: upsert entity
-
-
         $em = $doctrine->getManager();
+
+        $isPost = $request->isMethod('post');
+
+        if ($entity === null) {
+            $entity = new $this->entityClass;
+
+            if ($isPost) {
+                $em->persist($entity);
+            }
+        }
+
+        if ($isPost) {
+            foreach ($this->propertiesEdit as $property) {
+                $newValue = $request->get($property, null);
+
+                if ($newValue === null) {
+                    continue;
+                }
+
+                $entity->{'set' . ucfirst($property)}($newValue);
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('app_' . $this->name . '_read', [
+                'message' => $this->get('translator')->trans('base.form.success.submit'),
+            ]);
+        }
 
         /** @var \Doctrine\ORM\Mapping\ClassMetadata $metadata */
         $metadata = $em->getClassMetadata($this->entityClass);

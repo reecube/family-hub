@@ -14,7 +14,10 @@ base:
   form:
     error:
       nan: 'Input is not a number!'
+    success:
+      submit: 'Successfully submitted!'
     submit: 'submit'
+    back: 'go back'
 
 page:
   index:

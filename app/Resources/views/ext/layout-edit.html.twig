@@ -1,5 +1,8 @@
 {% extends 'ext/layout.html.twig' %}
 
+{% set urlKeyRead = 'app_' ~ name ~ '_read' %}
+{% set urlRead = path(urlKeyRead) %}
+
 {% block content %}
     <form action="" method="post">
         {% for fieldName, field in fields %}
@@ -21,6 +24,10 @@
         {% endfor %}
 
         <div>
+            <a href="{{ urlRead }}"
+               class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                <span>{{ 'base.form.back' | trans }}</span>
+            </a>
             <input type="submit" value="{{ 'base.form.submit' | trans }}"
                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
         </div>
