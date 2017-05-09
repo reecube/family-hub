@@ -34,6 +34,11 @@
     width: 100%;
 }
 
+.admin-base-edit-form .mdl-button,
+.admin-base-edit-form .admin-base-form-input {
+    width: 100%;
+}
+
 .header-link * {
     display: inline-block;
 

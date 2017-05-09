@@ -4,33 +4,42 @@
 {% set urlRead = path(urlKeyRead) %}
 
 {% block content %}
-    <form action="" method="post">
-        {% for fieldName, field in fields %}
-            {% if entity %}
-                {% set inputValue = attribute(entity, fieldName) %}
-            {% else %}
-                {% set inputValue = null %}
-            {% endif %}
+    <form class="admin-base-edit-form" action="" method="post">
+        <div class="mdl-grid">
+            {% for fieldName, field in fields %}
+                {% if entity %}
+                    {% set inputValue = attribute(entity, fieldName) %}
+                {% else %}
+                    {% set inputValue = null %}
+                {% endif %}
 
-            {% set inputId = fieldName %}
-            {% set inputName = fieldName %}
-            {% set inputText = ('page.' ~ name ~ '.properties.' ~ fieldName) | trans %}
-            {% set inputMaxlength = field.length %}
-            {% set inputRequired = not field.nullable %}
+                {% set inputId = fieldName %}
+                {% set inputName = fieldName %}
+                {% set inputText = ('page.' ~ name ~ '.properties.' ~ fieldName) | trans %}
+                {% set inputMaxlength = field.length %}
+                {% set inputRequired = not field.nullable %}
 
-            <div>
-                {% include 'inc/input/' ~ field.type ~ '.html.twig' %}
+                <div class="mdl-cell mdl-cell--12-col">
+                    {% include 'inc/input/' ~ field.type ~ '.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--hide-phone">
+                <p>
+                    <a href="{{ urlRead }}"
+                       class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        <span>{{ 'base.form.back' | trans }}</span>
+                    </a>
+                </p>
             </div>
-        {% endfor %}
-
-        <div>
-            <a href="{{ urlRead }}"
-               class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                <span>{{ 'base.form.back' | trans }}</span>
-            </a>
-
-            <input type="submit" value="{{ 'base.form.submit' | trans }}"
-                   class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+            <div class="mdl-cell mdl-cell--8-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
+                <p>
+                    <input type="submit" value="{{ 'base.form.submit' | trans }}"
+                           class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                </p>
+            </div>
         </div>
     </form>
 {% endblock %}
