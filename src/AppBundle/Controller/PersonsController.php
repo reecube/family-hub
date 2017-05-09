@@ -9,22 +9,22 @@ use AppBundle\Enum\Pages;
 
 /**
  * @Security("has_role('ROLE_USER')")
- * @Route("/persons")
+ * @Route("/person")
  */
 class PersonsController extends BaseController
 {
     /**
      * @var string
      */
-    protected $template = 'persons.html.twig';
+    protected $template = 'person.html.twig';
 
     /**
      * @var int
      */
-    protected $pageId = Pages::ID_PAGE_PERSONS;
+    protected $pageId = Pages::ID_PAGE_PERSON;
 
     /**
-     * @Route("/", name="persons")
+     * @Route("/", name="person")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */

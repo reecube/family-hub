@@ -6,8 +6,8 @@ page:
   index:
     title: 'Home'
   dinner:
-    title: 'Dinner'
-  persons:
+    title: 'Dinners'
+  person:
     title: 'Persons'
     table:
       header:

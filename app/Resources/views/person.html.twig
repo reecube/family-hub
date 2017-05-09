@@ -9,7 +9,7 @@
                     <tr>
                         {% for property in ['edit', 'nickname', 'firstname', 'lastname', 'gender', 'user', 'delete'] %}
                             <td class="mdl-data-table__cell--non-numeric">
-                                <span>{{ ('page.persons.table.header.' ~ property) | trans }}</span>
+                                <span>{{ ('page.person.table.header.' ~ property) | trans }}</span>
                             </td>
                         {% endfor %}
                     </tr>
@@ -49,12 +49,12 @@
                     </tbody>
                 </table>
             {% else %}
-                <p>{{ 'page.persons.table.empty' | trans }}</p>
+                <p>{{ 'page.person.table.empty' | trans }}</p>
             {% endif %}
         </div>
         <div>
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-                <span>{{ 'page.persons.table.create' | trans }}</span>
+                <span>{{ 'page.person.table.create' | trans }}</span>
             </button>
         </div>
     </div>
