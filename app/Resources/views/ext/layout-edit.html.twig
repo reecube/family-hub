@@ -13,7 +13,7 @@
             {% set inputName = fieldName %}
             {% set inputText = ('page.' ~ name ~ '.properties.' ~ fieldName) | trans %}
             {% set inputMaxlength = field.length %}
-            {% set inputRequired = field.nullable %}
+            {% set inputRequired = not field.nullable %}
 
             <div>
                 {% include 'inc/input/' ~ field.type ~ '.html.twig' %}
