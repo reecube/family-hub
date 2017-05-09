@@ -83,6 +83,26 @@ class Person
 
 
     /**
+     * @return string
+     */
+    function __toString()
+    {
+        $nickname = $this->getNickname();
+        if ($nickname !== null) {
+            return $nickname;
+        }
+
+        $fullname = $this->getFirstname();
+        $lastname = $this->getLastname();
+
+        if ($lastname !== null) {
+            $fullname .= ' ' . $lastname;
+        }
+
+        return $fullname;
+    }
+
+    /**
      * Constructor
      */
     public function __construct()

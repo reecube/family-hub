@@ -44,6 +44,20 @@ class User extends BaseUser
 
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        $person = $this->getPerson();
+
+        if ($person !== null) {
+            return (string)$person;
+        }
+
+        return "{$this->getUsername()} <{$this->getEmail()}>";
+    }
+
+    /**
      * @param Person $person
      * @return User
      */
