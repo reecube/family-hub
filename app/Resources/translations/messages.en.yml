@@ -13,8 +13,10 @@ base:
     create: 'create'
   form:
     error:
+      delete: 'Could not delete!'
       nan: 'Input is not a number!'
     success:
+      delte: 'Successfully deleted!'
       submit: 'Successfully submitted!'
     submit: 'submit'
     back: 'go back'

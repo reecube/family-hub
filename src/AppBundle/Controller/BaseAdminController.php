@@ -161,17 +161,17 @@ abstract class BaseAdminController extends BaseController
         $entity = $repo->find($request->get('id'));
 
         if ($entity === null) {
-            return new JsonResponse([
-                'success' => false,
-            ], 400);
+            return $this->redirectToRoute('app_' . $this->name . '_read', [
+                'error' => $this->get('translator')->trans('base.form.error.delete'),
+            ]);
         }
 
         $em = $this->getDoctrine()->getManager();
         $em->remove($entity);
         $em->flush();
 
-        return new JsonResponse([
-            'success' => true,
+        return $this->redirectToRoute('app_' . $this->name . '_read', [
+            'message' => $this->get('translator')->trans('base.form.success.delte'),
         ]);
     }
 }
