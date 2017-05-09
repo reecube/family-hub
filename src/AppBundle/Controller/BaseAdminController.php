@@ -2,8 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Enum\Pages;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 abstract class BaseAdminController extends BaseController
@@ -68,15 +68,12 @@ abstract class BaseAdminController extends BaseController
 
         $isPost = $request->isMethod('post');
 
-        if ($entity === null) {
-            $entity = new $this->entityClass;
-
-            if ($isPost) {
+        if ($isPost) {
+            if ($entity === null) {
+                $entity = new $this->entityClass;
                 $em->persist($entity);
             }
-        }
 
-        if ($isPost) {
             foreach ($this->propertiesEdit as $property) {
                 $newValue = $request->get($property, null);
 
@@ -94,6 +91,10 @@ abstract class BaseAdminController extends BaseController
             ]);
         }
 
+        if ($entity === null) {
+            $entity = new $this->entityClass;
+        }
+
         /** @var \Doctrine\ORM\Mapping\ClassMetadata $metadata */
         $metadata = $em->getClassMetadata($this->entityClass);
 
@@ -105,10 +106,15 @@ abstract class BaseAdminController extends BaseController
 
         $this->setAdminTemplate(true);
 
+        $subPageContext = $entity->getId() === null ? 'create' : 'update';
+
         return $this->renderPage($request, [
             'name' => $this->name,
             'entity' => $entity,
             'fields' => $fields,
+            'page' => [
+                'subtitle' => "base.{$subPageContext}.title",
+            ],
         ]);
     }
 

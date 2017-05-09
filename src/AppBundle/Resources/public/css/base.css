@@ -12,6 +12,29 @@
     border: 1px solid;
 }
 
+.header-link {
+    display: block;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.header-link * {
+    display: inline-block;
+
+    float: left;
+
+    margin-right: 8px;
+}
+
+.header-link *:last-child {
+    margin-right: 0;
+}
+
+.header-link .mdl-layout-title {
+    display: inline-block;
+}
+
 .mdl-layout__content > .mdl-grid > * {
     margin-left: auto;
     margin-right: auto;

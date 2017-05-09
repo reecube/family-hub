@@ -3,6 +3,10 @@ base_drawer_logout: 'Logout'
 base_drawer_account: 'Account'
 
 base:
+  create:
+    title: 'Create'
+  update:
+    title: 'Update'
   table:
     header:
       create: 'Create'
