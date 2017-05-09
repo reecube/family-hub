@@ -36,6 +36,8 @@ abstract class BaseAdminController extends BaseController
 
     function __construct()
     {
+        parent::__construct();
+
         if ($this->name === null || $this->entityClass === null || $this->tableProperties === null) {
             throw new \Exception('You have to overwrite the base admin variables!');
         }

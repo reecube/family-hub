@@ -12,19 +12,18 @@ abstract class BaseController extends Controller
     /**
      * @var string
      */
-    protected $template = 'index.html.twig';
+    protected $template = null;
 
     /**
      * @var int
      */
-    protected $pageId = Pages::ID_PAGE_INDEX;
+    protected $pageId = null;
 
-    /**
-     * @return bool
-     */
-    public function isLocal()
+    function __construct()
     {
-        return $_SERVER['HTTP_HOST'] === 'youtube.reecube.local';
+        if ($this->template === null || $this->pageId === null) {
+            throw new \Exception('You have to overwrite the base variables!');
+        }
     }
 
     /**
