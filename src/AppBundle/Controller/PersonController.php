@@ -11,7 +11,7 @@ use AppBundle\Enum\Pages;
  * @Security("has_role('ROLE_USER')")
  * @Route("/person")
  */
-class PersonsController extends BaseController
+class PersonController extends BaseController
 {
     /**
      * @var string
