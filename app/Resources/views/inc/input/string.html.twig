@@ -1,6 +1,22 @@
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input id="{{ inputId }}" name="{{ inputName }}" class="mdl-textfield__input"
-           type="text" maxlength="{{ inputMaxlength }}" value="{{ inputValue }}"
-            {% if inputRequired %} required{% endif %}>
+    {% if inputMaxlength > 100 %}
+        {% set rows = (inputMaxlength / 100) | round %}
+
+        {% if rows < 3 %}
+            {% set rows = 3 %}
+        {% endif %}
+
+        {% if rows > 10 %}
+            {% set rows = 10 %}
+        {% endif %}
+
+        <textarea id="{{ inputId }}" name="{{ inputName }}" class="mdl-textfield__input"
+                  type="text" maxlength="{{ inputMaxlength }}" rows="{{ rows }}"
+                  {% if inputRequired %}required{% endif %}>{{ inputValue }}</textarea>
+    {% else %}
+        <input id="{{ inputId }}" name="{{ inputName }}" class="mdl-textfield__input"
+               type="text" maxlength="{{ inputMaxlength }}" value="{{ inputValue }}"
+               {% if inputRequired %}required{% endif %}>
+    {% endif %}
     <label class="mdl-textfield__label" for="{{ inputId }}">{{ inputText }}</label>
 </div>
