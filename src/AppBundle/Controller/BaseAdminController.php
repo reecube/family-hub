@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Enum\Pages;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -75,10 +74,10 @@ abstract class BaseAdminController extends BaseController
             }
 
             foreach ($this->propertiesEdit as $property) {
-                $newValue = $request->get($property, null);
+                $newValue = $request->get($property, false);
 
-                if ($newValue === null) {
-                    continue;
+                if ($newValue === 'true') {
+                    $newValue = true;
                 }
 
                 $entity->{'set' . ucfirst($property)}($newValue);
