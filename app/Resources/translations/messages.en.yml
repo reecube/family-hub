@@ -9,6 +9,17 @@ page:
     title: 'Dinner'
   persons:
     title: 'Persons'
+    table:
+      header:
+        edit: 'Edit'
+        nickname: 'Nickname'
+        firstname: 'Firstname'
+        lastname: 'Lastname'
+        gender: 'Gender'
+        user: 'User'
+        delete: 'Delete'
+      empty: 'Currently there are no persons.'
+      create: 'create new person'
   diet:
     title: 'Diets'
   settings:
