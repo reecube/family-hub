@@ -6,7 +6,7 @@ abstract class Pages
 {
     const ID_PAGE_INDEX = 1;
     const ID_PAGE_DINNER = 2;
-    const ID_PAGE_PERSON = 3;
+    const ID_PAGE_PERSONS = 3;
     const ID_PAGE_DIET = 4;
     const ID_PAGE_SETTINGS = 5;
 
@@ -24,8 +24,8 @@ abstract class Pages
             self::KEY_NAME => 'dinner',
             self::KEY_ICON => 'restaurant',
         ],
-        self::ID_PAGE_PERSON => [
-            self::KEY_NAME => 'person',
+        self::ID_PAGE_PERSONS => [
+            self::KEY_NAME => 'persons',
             self::KEY_ICON => 'face',
         ],
         self::ID_PAGE_DIET => [

@@ -28,13 +28,19 @@ class ViewController extends BaseController
     }
 
     /**
-     * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/person", name="person")
+     * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/persons", name="persons")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function personAction(Request $request)
+    public function personsAction(Request $request)
     {
-        return $this->render('person.html.twig', $this->getViewContext($request, $this->getParsedPage(Pages::ID_PAGE_PERSON)));
+        $context = $this->getViewContext($request, $this->getParsedPage(Pages::ID_PAGE_PERSONS), [
+            'persons' => [
+                'Test',
+            ],
+        ]);
+
+        return $this->render('persons.html.twig', $context);
     }
 
     /**

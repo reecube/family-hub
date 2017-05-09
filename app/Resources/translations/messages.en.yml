@@ -7,8 +7,8 @@ page:
     title: Home
   dinner:
     title: Dinner
-  person:
-    title: Person
+  persons:
+    title: Persons
   diet:
     title: Diets
   settings:
