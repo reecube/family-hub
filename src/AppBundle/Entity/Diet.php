@@ -30,7 +30,7 @@ class Diet
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=1000)
+     * @ORM\Column(name="description", type="string", length=1000, nullable=true)
      */
     private $description;
 
