@@ -1,15 +1,15 @@
-base_enter_query: Enter your query...
-base_drawer_logout: Logout
-base_drawer_account: Account
+base_enter_query: 'Enter your query...'
+base_drawer_logout: 'Logout'
+base_drawer_account: 'Account'
 
 page:
   index:
-    title: Home
+    title: 'Home'
   dinner:
-    title: Dinner
+    title: 'Dinner'
   persons:
-    title: Persons
+    title: 'Persons'
   diet:
-    title: Diets
+    title: 'Diets'
   settings:
-    title: Settings
+    title: 'Settings'
