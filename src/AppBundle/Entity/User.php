@@ -12,15 +12,38 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends BaseUser
 {
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
-    public function __construct()
+    /**
+     * @var Person
+     *
+     * @ORM\OneToOne(targetEntity="Person", mappedBy="user")
+     */
+    private $person;
+
+
+    /**
+     * @param Person $person
+     * @return User
+     */
+    public function setPerson(Person $person = null)
     {
-        parent::__construct();
-        // your own logic
+        $this->person = $person;
+
+        return $this;
+    }
+
+    /**
+     * @return Person
+     */
+    public function getPerson()
+    {
+        return $this->person;
     }
 }
