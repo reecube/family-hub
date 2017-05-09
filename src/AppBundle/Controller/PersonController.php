@@ -20,15 +20,15 @@ class PersonController extends BaseAdminController
     /**
      * @var string
      */
-    protected $name = 'person';
-
-    /**
-     * @var string
-     */
     protected $entityClass = 'AppBundle:Person';
 
     /**
      * @var array
      */
-    protected $tableProperties = ['nickname', 'firstname', 'lastname', 'user'];
+    protected $propertiesRead = ['nickname', 'firstname', 'lastname', 'user'];
+
+    /**
+     * @var array
+     */
+    protected $propertiesEdit = [];
 }

@@ -14,11 +14,6 @@ use AppBundle\Enum\Pages;
 class SettingsController extends BaseController
 {
     /**
-     * @var string
-     */
-    protected $template = 'settings.html.twig';
-
-    /**
      * @var int
      */
     protected $pageId = Pages::ID_PAGE_SETTINGS;

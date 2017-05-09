@@ -10,11 +10,6 @@ use AppBundle\Enum\Pages;
 class IndexController extends BaseController
 {
     /**
-     * @var string
-     */
-    protected $template = 'index.html.twig';
-
-    /**
      * @var int
      */
     protected $pageId = Pages::ID_PAGE_INDEX;

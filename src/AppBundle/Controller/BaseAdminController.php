@@ -11,27 +11,27 @@ abstract class BaseAdminController extends BaseController
     /**
      * @var string
      */
-    protected $name = null;
-
-    /**
-     * @var string
-     */
     protected $entityClass = null;
 
     /**
      * @var array
      */
-    protected $tableProperties = null;
+    protected $propertiesRead = null;
+
+    /**
+     * @var array
+     */
+    protected $propertiesEdit = null;
 
     /**
      * @param bool $edit
      */
-    protected final function setTemplate($edit = false)
+    protected final function setAdminTemplate($edit = false)
     {
         if ($edit) {
-            $this->template = $this->name . '.html.twig';
+            $this->template = 'ext/layout-edit.html.twig';
         } else {
-            $this->template = 'ext/layout-table.html.twig';
+            $this->template = 'ext/layout-read.html.twig';
         }
     }
 
@@ -39,11 +39,11 @@ abstract class BaseAdminController extends BaseController
     {
         parent::__construct();
 
-        if ($this->name === null || $this->entityClass === null || $this->tableProperties === null) {
+        if ($this->entityClass === null || $this->propertiesRead === null || $this->propertiesEdit === null) {
             throw new \Exception('You have to overwrite the base admin variables!');
         }
 
-        $this->setTemplate();
+        $this->setAdminTemplate();
     }
 
     /**
@@ -58,7 +58,7 @@ abstract class BaseAdminController extends BaseController
 
         // TODO: on post: upsert entity
 
-        $this->setTemplate(true);
+        $this->setAdminTemplate(true);
 
         return $this->renderPage($request, [
             'pagePrefix' => 'page.' . $this->name,
@@ -89,7 +89,7 @@ abstract class BaseAdminController extends BaseController
         return $this->renderPage($request, [
             'pagePrefix' => 'page.' . $this->name,
             'entities' => $repo->findAll(),
-            'properties' => $this->tableProperties,
+            'properties' => $this->propertiesRead,
         ]);
     }
 

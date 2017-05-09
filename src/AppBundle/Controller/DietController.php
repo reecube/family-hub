@@ -4,7 +4,6 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Enum\Pages;
 
 /**
@@ -21,15 +20,15 @@ class DietController extends BaseAdminController
     /**
      * @var string
      */
-    protected $name = 'diet';
-
-    /**
-     * @var string
-     */
     protected $entityClass = 'AppBundle:Diet';
 
     /**
      * @var array
      */
-    protected $tableProperties = ['title', 'description'];
+    protected $propertiesRead = ['title', 'description'];
+
+    /**
+     * @var array
+     */
+    protected $propertiesEdit = [];
 }

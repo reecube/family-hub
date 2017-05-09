@@ -2,13 +2,14 @@
 
 namespace AppBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/language")
  */
-class LanguageController extends BaseController
+class LanguageController extends Controller
 {
     /**
      * @Route("/{_locale}", requirements={ "_locale": "en|fr|de" })

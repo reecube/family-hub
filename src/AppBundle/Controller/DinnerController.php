@@ -14,11 +14,6 @@ use AppBundle\Enum\Pages;
 class DinnerController extends BaseController
 {
     /**
-     * @var string
-     */
-    protected $template = 'dinner.html.twig';
-
-    /**
      * @var int
      */
     protected $pageId = Pages::ID_PAGE_DINNER;

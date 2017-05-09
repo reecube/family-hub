@@ -10,19 +10,32 @@ use Symfony\Component\HttpFoundation\Request;
 abstract class BaseController extends Controller
 {
     /**
-     * @var string
-     */
-    protected $template = null;
-
-    /**
      * @var int
      */
     protected $pageId = null;
+
+    /**
+     * @var string
+     */
+    protected $name = null;
+
+    /**
+     * @var string
+     */
+    protected $template = null;
 
     function __construct()
     {
         if ($this->pageId === null) {
             throw new \Exception('You have to overwrite the base variables!');
+        }
+
+        if ($this->name === null) {
+            $this->name = Pages::PAGES[$this->pageId][Pages::KEY_NAME];
+        }
+
+        if ($this->template === null) {
+            $this->template = $this->name . '.html.twig';
         }
     }
 
@@ -117,7 +130,7 @@ abstract class BaseController extends Controller
             $page[Pages::KEY_METHOD] = 'index';
         }
         if (!isset($page[Pages::KEY_ROUTE])) {
-            $page[Pages::KEY_ROUTE] = 'app_' . $page[Pages::KEY_NAME] . '_' . $page[Pages::KEY_METHOD];
+            $page[Pages::KEY_ROUTE] = "app_{$page[Pages::KEY_NAME]}_{$page[Pages::KEY_METHOD]}";
         }
         if (!isset($page[Pages::KEY_TITLE])) {
             $page[Pages::KEY_TITLE] = "page.{$page[Pages::KEY_NAME]}.title";
