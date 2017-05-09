@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Diet;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Enum\Pages;
@@ -20,7 +21,7 @@ class DietController extends BaseAdminController
     /**
      * @var string
      */
-    protected $entityClass = 'AppBundle:Diet';
+    protected $entityClass = Diet::class;
 
     /**
      * @var array

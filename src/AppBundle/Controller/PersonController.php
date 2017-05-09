@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Person;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Enum\Pages;
@@ -20,7 +21,7 @@ class PersonController extends BaseAdminController
     /**
      * @var string
      */
-    protected $entityClass = 'AppBundle:Person';
+    protected $entityClass = Person::class;
 
     /**
      * @var array
