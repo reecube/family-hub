@@ -2,6 +2,16 @@ base_enter_query: 'Enter your query...'
 base_drawer_logout: 'Logout'
 base_drawer_account: 'Account'
 
+base:
+  table:
+    header:
+      create: 'Create'
+      read: 'Read'
+      update: 'Edit'
+      delete: 'Delete'
+    empty: 'There are no entries.'
+    create: 'create'
+
 page:
   index:
     title: 'Home'
@@ -9,18 +19,15 @@ page:
     title: 'Dinners'
   person:
     title: 'Persons'
-    table:
-      header:
-        edit: 'Edit'
-        nickname: 'Nickname'
-        firstname: 'Firstname'
-        lastname: 'Lastname'
-        gender: 'Gender'
-        user: 'User'
-        delete: 'Delete'
-      empty: 'Currently there are no persons.'
-      create: 'create new person'
+    properties:
+      nickname: 'Nickname'
+      firstname: 'Firstname'
+      lastname: 'Lastname'
+      user: 'User'
   diet:
     title: 'Diets'
+    properties:
+      title: 'Title'
+      description: 'Description'
   settings:
     title: 'Settings'

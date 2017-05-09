@@ -1,0 +1,61 @@
+{% extends 'ext/layout.html.twig' %}
+
+{% block content %}
+    <div>
+        <div>
+            {% if entities | length %}
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                    <thead>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <span>{{ 'base.table.header.update' | trans }}</span>
+                        </td>
+
+                        {% for property in properties %}
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <span>{{ (pagePrefix ~ '.properties.' ~ property) | trans }}</span>
+                            </td>
+                        {% endfor %}
+
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <span>{{ 'base.table.header.delete' | trans }}</span>
+                        </td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                            </td>
+
+                            {% for property in properties %}
+                                <td class="mdl-data-table__cell--non-numeric">
+                                    <span>{{ attribute(entity, property) }}</span>
+                                </td>
+                            {% endfor %}
+
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-color-text--red-900">
+                                    <i class="material-icons">delete_forever</i>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>
+                    <span>{{ 'base.table.empty' | trans }}</span>
+                </p>
+            {% endif %}
+        </div>
+        <div>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                <span>{{ 'base.table.create' | trans }}</span>
+            </button>
+        </div>
+    </div>
+{% endblock %}
