@@ -2,12 +2,14 @@
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Enum\Pages;
 
 class ViewController extends BaseController
 {
     /**
+     * @Security("has_role('ROLE_USER')")
      * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/", name="index")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -18,6 +20,7 @@ class ViewController extends BaseController
     }
 
     /**
+     * @Security("has_role('ROLE_USER')")
      * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/dinner", name="dinner")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -28,6 +31,7 @@ class ViewController extends BaseController
     }
 
     /**
+     * @Security("has_role('ROLE_USER')")
      * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/persons", name="persons")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -44,6 +48,7 @@ class ViewController extends BaseController
     }
 
     /**
+     * @Security("has_role('ROLE_USER')")
      * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/diet", name="diet")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -54,6 +59,7 @@ class ViewController extends BaseController
     }
 
     /**
+     * @Security("has_role('ROLE_USER')")
      * @Sensio\Bundle\FrameworkExtraBundle\Configuration\Route("/settings", name="settings")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
