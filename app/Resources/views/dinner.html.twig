@@ -1,5 +1,68 @@
 {% extends 'ext/layout.html.twig' %}
 
+{# @var weeks \AppBundle\Entity\Week[] #}
+
 {% block content %}
-    <p>TODO: DINNER</p>
+    {% if weeks|length %}
+        {% spaceless %}
+            <table class="calendar" cellspacing="0">
+                <tr>
+                    <th class="mdl-cell--hide-phone mdl-cell--hide-tablet">
+                        <span>{{ 'calendar.month.text'|trans }}</span>
+                    </th>
+                    {% for day in weeks[0].days %}
+                        {% set dayName = ('calendar.week.' ~ day|date('D')|lower)|trans %}
+                        <th>
+                            <span class="mdl-cell--hide-desktop">
+                                <span class="mdl-cell--hide-tablet">{{ dayName|slice(0, 2)|upper }}</span>
+                                <span class="mdl-cell--hide-phone">{{ dayName|slice(0, 3) }}</span>
+                            </span>
+                            <span class="mdl-cell--hide-phone mdl-cell--hide-tablet">
+                                <span>{{ dayName }}</span>
+                            </span>
+                        </th>
+                    {% endfor %}
+                </tr>
+                {% for week in weeks %}
+                    <tr>
+                        <th class="mdl-cell--hide-phone mdl-cell--hide-tablet">
+                            <span>{{ week.dateFrom|date('d') }}.&nbsp;</span>
+                            <span>{{ ('calendar.month.' ~ week.dateFrom|date('M')|lower)|trans }}</span>
+                            <span>&nbsp;&ndash;&nbsp;</span>
+                            <span>{{ week.dateTo|date('d') }}.&nbsp;</span>
+                            <span>{{ ('calendar.month.' ~ week.dateTo|date('M')|lower )|trans }}</span>
+                        </th>
+                        {% for day in week.days %}
+                            <td class="js-calendar-link"
+                                data-timestamp="{{ day.timestamp }}" data-day="{{ day|date('j') }}"
+                                data-month="{{ day|date('n') }}" data-year="{{ day|date('Y') }}">
+                                <span class="mdl-cell--hide-desktop">
+                                    <span class="mdl-cell--hide-tablet">{{ day|date('j') }}</span>
+                                    <span class="mdl-cell--hide-phone">{{ day|date('d.m') }}</span>
+                                </span>
+                                <span class="mdl-cell--hide-phone mdl-cell--hide-tablet">
+                                    <span class="calendar-day">
+                                        <span class="calendar-am">
+                                            <span>{{ random(10) }}</span>
+                                            <span>
+                                                <i class="material-icons">school</i>
+                                                <i class="material-icons">local_florist</i>
+                                            </span>
+                                        </span>
+                                        <span class="calendar-pm">
+                                            <span>{{ random(10) }}</span>
+                                            <span>
+                                                <i class="material-icons">cake</i>
+                                                <i class="material-icons">local_florist</i>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endspaceless %}
+    {% endif %}
 {% endblock %}

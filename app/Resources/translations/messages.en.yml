@@ -3,51 +3,78 @@ base_drawer_logout: 'Logout'
 base_drawer_account: 'Account'
 
 base:
-  create:
-    title: 'New'
-  update:
-    title: 'Edit'
-  table:
-    header:
-      create: 'Create'
-      read: 'Read'
-      update: 'Edit'
-      delete: 'Delete'
-    empty: 'There are no entries.'
-    create: 'create'
-  form:
-    error:
-      delete: 'Could not delete!'
-      nan: 'Input is not a number!'
-    success:
-      delte: 'Successfully deleted!'
-      submit: 'Successfully submitted!'
-    submit: 'submit'
-    back: 'go back'
+    create:
+        title: 'New'
+    update:
+        title: 'Edit'
+    table:
+        header:
+            create: 'Create'
+            read: 'Read'
+            update: 'Edit'
+            delete: 'Delete'
+        empty: 'There are no entries.'
+        create: 'create'
+    form:
+        error:
+            delete: 'Could not delete!'
+            nan: 'Input is not a number!'
+        success:
+            delte: 'Successfully deleted!'
+            submit: 'Successfully submitted!'
+        submit: 'submit'
+        back: 'go back'
+
+calendar:
+    week:
+        text: 'Week'
+        mon: 'Monday'
+        tue: 'Tuesday'
+        wed: 'Wednesday'
+        thu: 'Thursday'
+        fri: 'Friday'
+        sat: 'Saturday'
+        sun: 'Sunday'
+    month:
+        text: 'Month'
+        jan: 'January'
+        feb: 'February'
+        mar: 'March'
+        apr: 'April'
+        may: 'May'
+        jun: 'June'
+        jul: 'July'
+        aug: 'August'
+        sep: 'September'
+        oct: 'October'
+        nov: 'November'
+        dec: 'December'
+    year:
+        text: 'Year'
 
 page:
-  index:
-    title: 'Home'
-    description: ''
-  dinner:
-    title: 'Dinners'
-    description: ''
-  person:
-    title: 'Persons'
-    description: ''
-    properties:
-      nickname: 'Nickname'
-      firstname: 'Firstname'
-      lastname: 'Lastname'
-      female: 'Is Female?'
-      allowLogin: 'Allow login?'
-      user: 'User'
-  diet:
-    title: 'Diets'
-    description: ''
-    properties:
-      title: 'Title'
-      description: 'Description'
-  settings:
-    title: 'Settings'
-    description: ''
+    index:
+        title: 'Home'
+        description: ''
+    dinner:
+        title: 'Dinners'
+        description: ''
+    person:
+        title: 'Persons'
+        description: ''
+        properties:
+            nickname: 'Nickname'
+            firstname: 'Firstname'
+            lastname: 'Lastname'
+            female: 'Is Female?'
+            allowLogin: 'Allow login?'
+            user: 'User'
+    diet:
+        title: 'Diets'
+        description: ''
+        properties:
+            title: 'Title'
+            description: 'Description'
+    settings:
+        title: 'Settings'
+        description: ''
