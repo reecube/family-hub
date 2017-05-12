@@ -47,7 +47,8 @@
 </head>
 <body>
 {% block body %}
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header{% if hasDrawer %} mdl-layout--fixed-drawer {% endif %}">
+    <div
+        class="mdl-layout mdl-js-layout mdl-layout--fixed-header{% if hasDrawer %} mdl-layout--fixed-drawer {% endif %}">
         {% block header %}
             {% include 'inc/header.html.twig' %}
         {% endblock %}
