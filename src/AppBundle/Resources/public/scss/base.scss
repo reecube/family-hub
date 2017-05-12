@@ -1,106 +1,106 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    min-height: unset;
-    height: 100%;
+  min-height: unset;
+  height: 100%;
 }
 
 .notifications {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .notification {
-    margin-bottom: 8px;
-    padding: 8px;
-    border: 1px solid;
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid;
 }
 
 .header-link {
-    display: block;
+  display: block;
 
-    text-decoration: none;
-    white-space: nowrap;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .admin-base-read-table .mdl-data-table {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 
-    width: 100%;
+  width: 100%;
 }
 
 .admin-base-read-table .mdl-data-table td:first-child,
 .admin-base-read-table .mdl-data-table td:last-child {
-    width: 1px;
+  width: 1px;
 }
 
 .admin-base-read-create .mdl-button {
-    width: 100%;
+  width: 100%;
 }
 
 .admin-base-edit-form .mdl-button,
 .admin-base-edit-form .admin-base-form-input {
-    width: 100%;
+  width: 100%;
 }
 
 .header-link * {
-    display: inline-block;
+  display: inline-block;
 
-    float: left;
+  float: left;
 
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
 .header-link *:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .header-link .mdl-layout-title {
-    display: inline-block;
+  display: inline-block;
 }
 
 .mdl-layout__content > .mdl-grid > * {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 
-    padding: 8px;
+  padding: 8px;
 
-    background: #fff;
+  background: #fff;
 }
 
 .mdl-menu .material-icons {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .plf-image-header {
-    padding: 16px;
+  padding: 16px;
 
-    min-height: 200px;
+  min-height: 200px;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    background: #333 center no-repeat;
-    background-size: cover;
+  background: #333 center no-repeat;
+  background-size: cover;
 }
 
 .plf-drawer-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
-    padding: 16px;
+  padding: 16px;
 }
 
 .plf-card-external-link {
-    float: right;
+  float: right;
 
-    text-align: right;
+  text-align: right;
 }
 
 .plf-channel-icon {
-    width: 46px;
-    height: 46px;
+  width: 46px;
+  height: 46px;
 
-    border-radius: 50%;
+  border-radius: 50%;
 }
