@@ -102,3 +102,6 @@ jspm_packages
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+/web/assetic/
+/web/js/
+/web/css/

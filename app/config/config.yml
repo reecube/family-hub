@@ -85,11 +85,13 @@ assetic:
     use_controller: "%kernel.debug%"
     bundles: []
     filters:
-        cssrewrite: ~
+        scssphp:
+            formatter: 'Leafo\ScssPhp\Formatter\Compressed'
+        jsqueeze: ~
     assets:
         base_stylesheets:
             inputs:
-                - 'bundles/app/css/*'
+                - 'bundles/app/scss/*'
         base_scripts:
             inputs:
                 - 'bundles/app/js/*'
