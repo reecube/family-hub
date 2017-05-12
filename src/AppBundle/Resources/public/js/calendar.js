@@ -2,7 +2,9 @@ $(function () {
   'use strict';
 
   // Declare constants
-  var CLASS_COLOR_PRIMARY = 'mdl-color--primary';
+  var VALUE_TRUE = 'true';
+  var VALUE_FALSE = 'false';
+  var ATTRIBUTE_ACTIVE = 'data-active';
   var SELECTOR_CALENDAR = '.js-calendar';
   var SELECTOR_CALENDAR_LINK = '.js-calendar-link';
 
@@ -17,8 +19,8 @@ $(function () {
     var $calendar = $self.closest(SELECTOR_CALENDAR);
     var $calendarLinks = $calendar.find(SELECTOR_CALENDAR_LINK);
 
-    $calendarLinks.removeClass(CLASS_COLOR_PRIMARY);
-    $self.addClass(CLASS_COLOR_PRIMARY);
+    $calendarLinks.attr(ATTRIBUTE_ACTIVE, VALUE_FALSE);
+    $self.attr(ATTRIBUTE_ACTIVE, VALUE_TRUE);
 
     event.preventDefault();
   };

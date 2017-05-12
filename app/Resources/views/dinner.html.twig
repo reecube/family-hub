@@ -37,7 +37,7 @@
                         {% for day in week.days %}
                             {# @var day \AppBundle\Entity\WeekDay #}
 
-                            <td class="js-calendar-link calendar-link"
+                            <td class="js-calendar-link calendar-link" data-active="false"
                                 data-past="{{ day.past ? 'true' : 'false' }}"
                                 data-today="{{ day.today ? 'true' : 'false' }}"
                                 data-future="{{ day.future ? 'true' : 'false' }}"
