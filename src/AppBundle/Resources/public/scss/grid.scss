@@ -1,0 +1,32 @@
+.plf-row {
+  display: block;
+
+  .plf-col {
+    display: block;
+
+    margin-top: 16px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @media screen and (min-width: 760px) {
+    &:after {
+      content: '';
+
+      display: block;
+
+      clear: both;
+    }
+
+    .plf-col {
+      float: left;
+      display: inline-block;
+
+      margin-top: 0;
+
+      width: 50%;
+    }
+  }
+}
