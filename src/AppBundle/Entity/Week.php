@@ -17,9 +17,9 @@ class Week
     private $dateTo;
 
     /**
-     * @var DateTime[]
+     * @var WeekDay[]
      */
-    private $cachedDays;
+    private $days;
 
     /**
      * @param null|DateTime $date
@@ -30,6 +30,7 @@ class Week
             $date = new DateTime();
         }
 
+        // Set week start
         $tsFrom = strtotime('monday this week', $date->getTimestamp());
         if ($tsFrom === false) {
             $this->dateFrom = null;
@@ -38,6 +39,7 @@ class Week
             $this->dateFrom->setTimestamp($tsFrom);
         }
 
+        // Set week end
         $tsTo = strtotime('sunday this week', $date->getTimestamp());
         if ($tsTo === false) {
             $this->dateTo = null;
@@ -46,7 +48,14 @@ class Week
             $this->dateTo->setTimestamp($tsTo);
         }
 
-        $this->cachedDays = null;
+        // Set week days
+        $this->days = [];
+        $currentDay = new WeekDay($this->dateFrom);
+        while ($currentDay->getDate()->getTimestamp() <= $this->dateTo->getTimestamp()) {
+            $this->days[] = $currentDay;
+
+            $currentDay = $currentDay->getTomorrow();
+        }
     }
 
     /**
@@ -66,30 +75,11 @@ class Week
     }
 
     /**
-     * @return DateTime[]
+     * @return WeekDay[]
      */
     public function getDays()
     {
-        if ($this->cachedDays !== null) {
-            return $this->cachedDays;
-        }
-
-        $days = [];
-
-        $currentDate = $this->dateFrom;
-
-        while ($currentDate->getTimestamp() <= $this->dateTo->getTimestamp()) {
-            $days[] = $currentDate;
-
-            $currentTimestamp = strtotime('tomorrow', $currentDate->getTimestamp());
-
-            $currentDate = new DateTime();
-            $currentDate->setTimestamp($currentTimestamp);
-        }
-
-        $this->cachedDays = $days;
-
-        return $days;
+        return $this->days;
     }
 
     /**

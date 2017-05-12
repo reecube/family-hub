@@ -11,7 +11,9 @@
                         <span>{{ 'calendar.month.text'|trans }}</span>
                     </th>
                     {% for day in weeks[0].days %}
-                        {% set dayName = ('calendar.week.' ~ day|date('D')|lower)|trans %}
+                        {# @var day \AppBundle\Entity\WeekDay #}
+
+                        {% set dayName = ('calendar.week.' ~ day.date|date('D')|lower)|trans %}
                         <th>
                             <span class="mdl-cell--hide-desktop">
                                 <span class="mdl-cell--hide-tablet">{{ dayName|slice(0, 2)|upper }}</span>
@@ -33,12 +35,17 @@
                             <span>{{ ('calendar.month.' ~ week.dateTo|date('M')|lower )|trans }}</span>
                         </th>
                         {% for day in week.days %}
+                            {# @var day \AppBundle\Entity\WeekDay #}
+
                             <td class="js-calendar-link calendar-link"
-                                data-timestamp="{{ day.timestamp }}" data-day="{{ day|date('j') }}"
-                                data-month="{{ day|date('n') }}" data-year="{{ day|date('Y') }}">
+                                data-past="{{ day.past ? 'true' : 'false' }}"
+                                data-today="{{ day.today ? 'true' : 'false' }}"
+                                data-future="{{ day.future ? 'true' : 'false' }}"
+                                data-timestamp="{{ day.date.timestamp }}" data-day="{{ day.date|date('j') }}"
+                                data-month="{{ day.date|date('n') }}" data-year="{{ day.date|date('Y') }}">
                                 <span class="mdl-cell--hide-desktop">
-                                    <span class="mdl-cell--hide-tablet">{{ day|date('j') }}</span>
-                                    <span class="mdl-cell--hide-phone">{{ day|date('d.m') }}</span>
+                                    <span class="mdl-cell--hide-tablet">{{ day.date|date('j') }}</span>
+                                    <span class="mdl-cell--hide-phone">{{ day.date|date('d.m') }}</span>
                                 </span>
                                 <span class="mdl-cell--hide-phone mdl-cell--hide-tablet">
                                     <span class="calendar-day">
