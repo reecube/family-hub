@@ -33,7 +33,7 @@
                             <span>{{ ('calendar.month.' ~ week.dateTo|date('M')|lower )|trans }}</span>
                         </th>
                         {% for day in week.days %}
-                            <td class="js-calendar-link"
+                            <td class="js-calendar-link calendar-link"
                                 data-timestamp="{{ day.timestamp }}" data-day="{{ day|date('j') }}"
                                 data-month="{{ day|date('n') }}" data-year="{{ day|date('Y') }}">
                                 <span class="mdl-cell--hide-desktop">

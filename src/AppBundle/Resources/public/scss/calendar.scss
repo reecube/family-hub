@@ -8,7 +8,6 @@
 
   th,
   td {
-    border: 2px solid #aaa;
     padding: 4px;
 
     vertical-align: middle;
@@ -17,17 +16,15 @@
   tr {
     &:not(:first-child) {
       th {
-        border-right: 0;
-
         width: 1px;
 
         white-space: nowrap;
-
-        &:not(:first-child) {
-          border-left: 0;
-        }
       }
     }
+  }
+
+  .calendar-link {
+    cursor: pointer;
   }
 
   .calendar-day {
